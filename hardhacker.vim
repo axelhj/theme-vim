@@ -1,3 +1,5 @@
+echo "VIM INIT"
+
 function! s:AfterHighlight()
     " fzf
     if exists('g:loaded_fzf') && ! exists('g:fzf_colors')
@@ -200,4 +202,5 @@ function! s:AfterHighlight()
 endfunction
 
 command! HardHackerAfterHighlight call s:AfterHighlight()
+:runtime hardhacker-init.vim
 call s:AfterHighlight()
