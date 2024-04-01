@@ -497,4 +497,3 @@ let s:hardhacker_barbecue_theme = {
       \ }
 
 let g:hardhacker_barbecue_theme = s:hardhacker_barbecue_theme
-

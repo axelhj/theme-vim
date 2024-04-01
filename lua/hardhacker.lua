@@ -1,4 +1,2 @@
-vim.cmd[[
-    :runtime hardhacker-theme.vim
-    :runtime hardhacker-highlight.vim"
-]]
+vim.cmd"runtime hardhacker-theme.vim"
+vim.cmd"runtime hardhacker-plugins.vim"
