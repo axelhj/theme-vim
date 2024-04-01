@@ -63,6 +63,7 @@ If you're using neovim, you can use [lazy.nvim](https://github.com/folke/lazy.nv
     vim.g.hardhacker_keyword_italic = 1
     -- custom highlights
     vim.g.hardhacker_custom_highlights = {}
+    require"hardhacker"
     vim.cmd("colorscheme hardhacker")
   end,
 },
