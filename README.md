@@ -85,3 +85,19 @@ syntax      on
 set         t_Co=256
 colorscheme hardhacker
 ```
+
+### Plugins with extra support
+
+- Gitgutter (let g:skip_gitgutter_theme
+- Gitsigns (nvim > 0.5, let g:skip_gitsigns_theme = 1 to skip)
+- Bufferline (let g:skip_bufferline_theme = 1 to skip)
+- Telescope (let g:skip_telescope_theme = 1 to skip)
+- Neotree (let g:skip_neotree_theme = 1 to skip)
+- Dashboard-nvim (let g:skip_dashboard_nvim_theme = 1 to skip)
+- Nvim-cmp (let g:skip_nvim_cmp_theme = 1 to skip)
+- Aerial (let g:skip_aerial_theme = 1 to skip)
+- Noice (let g:skip_noice_theme = 1 to skip)
+- Toggleterm (let g:skip_toggleterm_theme = 1 to skip)
+- Null-ls (let g:skip_null_ls_theme = 1 to skip)
+- Tree-sitter highlights (let g:skip_treesitter_highlights_theme = 1 to skip)
+- LSP Semantic Token Groups (let g:skip_lsp_semantic_token_groups_theme = 1 to skip)
