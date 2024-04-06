@@ -19,13 +19,14 @@ function! s:AfterHighlight()
     endif
 
     " gitgutter gitsigns
-    if exists('g:loaded_gitgutter')
+    if !exists('g:skip_gitgutter_theme') || !g:skip_gitgutter_theme
         hi! link GitGutterAdd    HardHackerGreen
         hi! link GitGutterChange HardHackerYellow
         hi! link GitGutterDelete HardHackerRed
     endif
-    if has('nvim') && luaeval("pcall(require, 'gitsigns')")
-        " gitsigns.nvim requires nvim > 0.5
+
+    " gitsigns.nvim requires nvim > 0.5
+    if has('nvim') && !exists('g:skip_gitsigns_theme') || !g:skip_gitsigns_theme
         hi! link GitSignsAdd      HardHackerGreen
         hi! link GitSignsAddLn    GitSignsAdd
         hi! link GitSignsAddNr    GitSignsAdd
@@ -38,19 +39,19 @@ function! s:AfterHighlight()
     endif
 
     " bufferline
-    if has('nvim') && luaeval("pcall(require, 'bufferline')")
+    if has('nvim') && (!exists('g:skip_bufferline_theme') || !g:skip_bufferline_theme)
         hi! link BufferLineFill                 TabLineFill
         hi! link BufferLineOffsetSeparator      VertSplit
     endif
 
     " telescope
-    if has('nvim') && exists('g:loaded_telescope')
+    if has('nvim') && !exists('g:skip_telescope_theme') || !g:skip_telescope_theme
         hi! link TelescopeTitle     Title
         hi! link TelescopeBorder    HardHackerBorder
     endif
 
     " neo-tree
-    if has('nvim') && exists('g:loaded_neo_tree')
+    if has('nvim') && !exists('g:skip_neotree_theme') || !g:skip_neotree_theme
         hi! link NeoTreeGitAdded        HardHackerGreen
         hi! link NeoTreeGitDeleted      HardHackerRed
         hi! link NeoTreeGitModified     HardHackerYellow
@@ -65,7 +66,7 @@ function! s:AfterHighlight()
     endif
 
     " dashboard-nvim
-    if has('nvim') && luaeval("pcall(require, 'dashboard')")
+    if has('nvim') && !exists('g:skip_dashboard_nvim_theme') || !g:skip_dashboard_nvim_theme
         hi! link DashboardHeader    HardHackerRed
         hi! link DashboardFooter    HardHackerComment
         " DashboardProjectTitle
@@ -76,28 +77,28 @@ function! s:AfterHighlight()
     endif
 
     " nvim-cmp
-    if has('nvim') && exists('g:loaded_cmp')
+    if has('nvim') && !exists('g:skip_nvim_cmp_theme') || !g:skip_nvim_cmp_theme
         hi! link CmpItemKindDefault         Type
         hi! link CmpItemAbbrMatchDefault    HardHackerPurple
     endif
 
-    if has('nvim') && luaeval("pcall(require, 'aerial')")
+    if has('nvim') && !exists('g:skip_aerial_theme') || !g:skip_aerial_theme
         hi! link AerialLine  HardHackerRed
         hi! link NONE        HardHackerBlue2
     endif
 
-    if has('nvim') && luaeval("pcall(require, 'noice')")
+    if has('nvim') && !exists('g:skip_noice_theme') || !g:skip_noice_theme
         hi! link NoicePopupBorder        FloatBorder
         hi! link NoiceCmdlinePopupBorder FloatBorder
         hi! link NoiceConfirmBorder      FloatBorder
     endif
 
-    if has('nvim') && luaeval("pcall(require, 'toggleterm')")
+    if has('nvim') && !exists('g:skip_toggleterm_theme') || !g:skip_toggleterm_theme
         hi! link ToggleTerm1EndOfBuffer  EndOfBuffer
         hi! link ToggleTerm1SignColumn   EndOfBuffer
     endif
 
-    if has('nvim') && luaeval("pcall(require, 'null-ls')")
+    if has('nvim') && !exists('g:skip_null_ls_theme') || !g:skip_null_ls_theme
         hi! link NullLsInfoBorder   FloatBorder
         hi! link NullLsInfoHeader   Type
         hi! link NullLsInfoTitle    Title
@@ -105,7 +106,7 @@ function! s:AfterHighlight()
     endif
 
     " tree-sitter highlights
-    if has('nvim')
+    if has('nvim') && !exists('g:skip_treesitter_highlights_theme') || !g:skip_gitgutter_theme
         " Misc
         hi! link @operator Operator
 
@@ -157,8 +158,10 @@ function! s:AfterHighlight()
         hi! link @tag.tsx           HardHackerRed
         hi! link @constructor.tsx   HardHackerBlue
         hi! link @tag.delimiter.tsx HardHackerBlue
+    endif
 
-        " LSP Semantic Token Groups
+    " LSP Semantic Token Groups
+    if has('nvim') && !exists('g:skip_lsp_semantic_token_groups_theme') || !g:skip_lsp_semantic_token_groups_theme
         hi! link @lsp.type.boolean                      @boolean
         hi! link @lsp.type.builtinType                  @type.builtin
         hi! link @lsp.type.comment                      @comment
